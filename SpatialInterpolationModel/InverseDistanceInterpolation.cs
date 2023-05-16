@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace SpatialInterpolationModel
 {
-    public class InverseDistanceInterpolation
+    public class InverseDistanceInterpolation : IModel
     {
         //public InverseDistanceInterpolation(int power, int numberOfPoints, DataSet dataSet)
         //{
@@ -118,32 +118,32 @@ namespace SpatialInterpolationModel
         //        throw new SpatialInterpolationModelException("FindNearestNeighbours", ex);
         //    }
         //}
-        public List<XYZoZp> PredictGrid(List<XYZ> toPredict)
-        {
-            List<XYZoZp> pred = new List<XYZoZp>();
-            try
-            {
-                foreach (XYZ p in toPredict)
-                {
-                    pred.Add(new XYZoZp(p.X, p.Y, p.Z, ZGrid(p.X, p.Y)));
-                }
-                return pred;
-            }
-            catch (Exception ex) { throw new SpatialInterpolationModelException("Predict", ex); }
-        }
-        public List<XYZoZp> PredictBruteForce(List<XYZ> toPredict)
-        {
-            List<XYZoZp> pred = new List<XYZoZp>();
-            try
-            {
-                foreach (XYZ p in toPredict)
-                {
-                    pred.Add(new XYZoZp(p.X, p.Y, p.Z, ZBruteForce(p.X, p.Y)));
-                }
-                return pred;
-            }
-            catch (Exception ex) { throw new SpatialInterpolationModelException("Predict", ex); }
-        }
+        //public List<XYZoZp> Predict(List<XYZ> toPredict)
+        //{
+        //    List<XYZoZp> pred = new List<XYZoZp>();
+        //    try
+        //    {
+        //        foreach (XYZ p in toPredict)
+        //        {
+        //            pred.Add(new XYZoZp(p.X, p.Y, p.Z, Z(p.X, p.Y)));
+        //        }
+        //        return pred;
+        //    }
+        //    catch (Exception ex) { throw new SpatialInterpolationModelException("Predict", ex); }
+        //}
+        //public List<XYZoZp> PredictBruteForce(List<XYZ> toPredict)
+        //{
+        //    List<XYZoZp> pred = new List<XYZoZp>();
+        //    try
+        //    {
+        //        foreach (XYZ p in toPredict)
+        //        {
+        //            pred.Add(new XYZoZp(p.X, p.Y, p.Z, ZBruteForce(p.X, p.Y)));
+        //        }
+        //        return pred;
+        //    }
+        //    catch (Exception ex) { throw new SpatialInterpolationModelException("Predict", ex); }
+        //}
         //private (int,int) FindCell(double x, double y)
         //{
         //    if (!gridDataSet.XYBoundary.WithinBounds(x, y)) throw new SpatialInterpolationModelException("out of bounds");
